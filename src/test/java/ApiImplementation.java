@@ -1,7 +1,5 @@
 import com.thoughtworks.gauge.Step;
 
-import java.io.IOException;
-
 import static api.MainApiFunction.getRootJSON;
 
 public class ApiImplementation {
