@@ -8,13 +8,13 @@ public class ApiImplementation {
 
     String baseUrl = "https://reqres.in/api/users/";
 
-    @Step("validate Tobias Funke in list")
-    public void validateTobiasFunkeInList() throws IOException {
+    @Step("validate <firstName> <lastName> in list")
+    public void validateTobiasFunkeInList(String firstName, String lastName) throws IOException {
         int counter = 0;
         for (int i = 1; i <= 12; i++) {
-            String firstName = getRootJSON(baseUrl + i).getData().getFirstName();
-            String lastName = getRootJSON(baseUrl + i).getData().getLastName();
-            if (firstName.equals("Tobias") && lastName.equals("Funke")) {
+            String actualFirstName = getRootJSON(baseUrl + i).getData().getFirstName();
+            String actualLastName = getRootJSON(baseUrl + i).getData().getLastName();
+            if (actualFirstName.equals(firstName) && actualLastName.equals(lastName)) {
                 counter++;
             }
         }
