@@ -1,0 +1,13 @@
+Created by Shlomi on 17/01/2024
+
+This is a concept file with following syntax for each concept.
+# Log in to sauce labs and make small shopping
+* Go to "https://sauceDemo.com", and validate "Swag Labs"
+* Log in with "standard_user", "secret_sauce"
+* Add to cart item
+* calculate right price
+* Validate success message
+* Close driver
+
+# Validate Tobias Funke in list test
+* validate Tobias Funke in list
