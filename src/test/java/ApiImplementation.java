@@ -1,3 +1,4 @@
+import api.Data;
 import com.thoughtworks.gauge.Step;
 
 import static api.MainApiFunction.getRootJSON;
@@ -11,8 +12,9 @@ public class ApiImplementation {
         int counter = 0;
         for (int i = 1; i <= 12; i++) {
             try {
-                String actualFirstName = getRootJSON(baseUrl + i).getData().getFirstName();
-                String actualLastName = getRootJSON(baseUrl + i).getData().getLastName();
+                Data data = getRootJSON(baseUrl + i).getData();
+                String actualFirstName = data.getFirstName();
+                String actualLastName = data.getLastName();
                 if (actualFirstName.equals(firstName) && actualLastName.equals(lastName)) {
                     counter++;
                 }

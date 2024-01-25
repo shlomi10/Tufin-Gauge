@@ -44,4 +44,12 @@ public class CheckOutSecondPage extends BasePage {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(actualPrice);
     }
+
+    public String getVal(Matcher matcher){
+        if (matcher.find()) {
+            return matcher.group(0);
+        } else {
+             return "No match in extracted Val";
+        }
+    }
 }

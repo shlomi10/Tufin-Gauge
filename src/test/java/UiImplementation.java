@@ -46,20 +46,12 @@ public class UiImplementation {
         String totalPriceBeforeTax = checkOutSecondPage.getTotalPriceWithoutTaxFunc()[0];
         Matcher matcher = checkOutSecondPage.getMatcher(totalPriceBeforeTax);
         String extractedVal = "";
-        if (matcher.find()) {
-            extractedVal = matcher.group(0);
-        } else {
-            System.out.println("No match in extracted Val");
-        }
+        extractedVal = checkOutSecondPage.getVal(matcher);
         double priceInDouble = checkOutSecondPage.getExpectedTotalPriceAfterTax(Double.parseDouble(extractedVal));
         String totalPriceAfterTax = checkOutSecondPage.getTotalPriceWithTaxFunc()[1];
         matcher = checkOutSecondPage.getMatcher(totalPriceAfterTax);
         String extractedValAfterTax = "";
-        if (matcher.find()) {
-            extractedValAfterTax = matcher.group(0);
-        } else {
-            System.out.println("No match in extracted Val After Tax");
-        }
+        extractedValAfterTax= checkOutSecondPage.getVal(matcher);
         Assertions.assertThat(priceInDouble).describedAs("Assertion of price was failed").isEqualTo(Double.parseDouble(extractedValAfterTax));
         checkOutSecondPage.clickFinish();
     }
